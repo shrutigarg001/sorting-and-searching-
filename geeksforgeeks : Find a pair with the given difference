@@ -1,0 +1,42 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+
+void pairs(int arr[], int n, int k) 
+{
+  sort(arr, arr+n); 
+
+  int i=0,j=1; 
+
+  int flag=0; 
+  while((i<n) && (j<n)) 
+    {
+      if (i != j && (arr[j] - arr[i] == k || arr[i] - arr[j] == k) )
+      { 
+        flag = 1; 
+        cout << arr[i] << " " << arr[j]; 
+        break; 
+      } 
+      else if((arr[j] - arr[i]) > k) 
+      {
+        i++; 
+      } 
+      else 
+      {
+        j++; 
+      }
+    } 
+  if(flag == 0) 
+  {
+    cout << "not found";
+  }
+}
+
+int main() {
+    int arr[5]={1, 8, 30, 40, 100}; 
+    int k=-60; 
+    pairs(arr, 5, k); 
+    return 0;
+} 
+
+// time complexity : o(nlogn) 
+// space complexity : o(1) 
