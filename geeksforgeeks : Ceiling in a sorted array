@@ -1,0 +1,72 @@
+#include <bits/stdc++.h>
+using namespace std; 
+
+int ceil(int arr[], int n, int x) 
+{ 
+  int ans=-1; 
+  int s=0,e=n-1; 
+  
+  while(s <= e) 
+    {
+      int mid=(s+e)/2; 
+
+      if(arr[mid] == x) 
+      {
+        ans = arr[mid]; 
+        return ans; 
+      } 
+      else if(arr[mid] > x) 
+      { 
+        ans = arr[mid]; 
+        e--; 
+      } 
+      else 
+      {
+        s++; 
+      }
+    } 
+  return ans; 
+} 
+
+int floor(int arr[], int n, int x) 
+{ 
+  int ans=-1; 
+  int s=0,e=n-1; 
+  
+  while(s <= e) 
+    {
+      int mid=(s+e)/2; 
+
+      if(arr[mid] == x) 
+      {
+        ans = arr[mid]; 
+        return ans; 
+      } 
+      else if(arr[mid] > x) 
+      { 
+         
+        e--; 
+      } 
+      else 
+      { 
+        ans = arr[mid]; 
+        s++; 
+      }
+    } 
+  return ans; 
+} 
+int main() {
+    int arr[]={1, 2, 8, 10, 10, 12, 19}; 
+
+    int x; 
+    cin >> x; 
+
+    int ceiling=ceil(arr, 7, x); 
+    int floor_value=floor(arr, 7, x); 
+
+    cout << floor_value << " " << ceiling; 
+    return 0;
+} 
+
+// time complexity : o(logn) 
+// space complexity : o(1) 
